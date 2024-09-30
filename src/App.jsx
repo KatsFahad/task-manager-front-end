@@ -1,8 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Task from "./components/TaskPage";
+
 const App = () => {
   return (
-    <div>
-      Hello
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Task/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
     );
 }
  
