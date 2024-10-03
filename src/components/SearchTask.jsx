@@ -30,6 +30,30 @@ const SearchTask = () => {
         setfilterTasks(result);
 
     }
+    const deleteTask = async (task) => {
+        try {
+          const response = await fetch(
+            `https://task-manager-back-end-hrfw.onrender.com/tasks/${task.id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+    
+          if (response.ok) {
+            const newTasks = tasks.filter((item) => item.id !== task.id);
+            setTasks(newTasks);
+            alert("Task deleted successfully");
+          } else {
+            alert("Failed to delete task");
+          }
+        } catch (error) {
+          console.error("Error deleting task:", error);
+          alert("Failed to delete task");
+        }
+    }
 
   return (
     <div>
@@ -37,7 +61,7 @@ const SearchTask = () => {
       <div className="search-result">
       {filterTasks.length > 0 ? (
           filterTasks.map((task, index) => (
-            <h4 key={index}>{task.title}</h4>
+            <h4 key={index}>{task.title}<span><button onClick={()=>deleteTask(task)}>Delete</button></span></h4>
            
           ))
         ) : (

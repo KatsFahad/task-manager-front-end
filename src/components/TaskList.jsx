@@ -20,10 +20,6 @@ const TaskList = () => {
         fetchTasks()
     },[])
 
-    // const deleteTask = (deleteitem) =>{
-    //     const newTasks = tasks.filter((item)=> item !== deleteitem)
-    //     setTasks(newTasks)
-    // }
     const deleteTask = async (task) => {
         try {
           const response = await fetch(
