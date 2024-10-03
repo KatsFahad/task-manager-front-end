@@ -1,3 +1,4 @@
+import SearchTask from "./SearchTask";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
@@ -6,6 +7,8 @@ const Task = () => {
     <div>
       <h1>Task Manager</h1>
       <TaskForm/>
+      <br />
+      <SearchTask/>
       <TaskList/>
     </div>
   );
